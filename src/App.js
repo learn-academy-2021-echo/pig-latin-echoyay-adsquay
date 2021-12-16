@@ -2,8 +2,8 @@ import React, { Component } from 'react'
 import './App.css'
 import butcherPig from './assets/butcherPig.jpeg'
 
-class App extends Component{
-  constructor(props){
+class App extends Component {
+  constructor(props) {
     super(props)
     // the state object holds information that can be displayed to the user and updated throughout the program
     this.state = {
@@ -28,12 +28,15 @@ class App extends Component{
       // ACTION ITEM: use "currentWord" as a starting point for your code
       console.log("currentWord:", currentWord)
 
-      let vowelsArray = currentWord.split("").filter(vowel => {
-        return vowel === "a" || vowel === "e" || vowel === "i" || vowel === "o" || vowel === "u"
-      })
-      console.log("vowelsArray:", vowelsArray)
+      // let vowelsArray = currentWord.split("").filter(vowel => {
+      //   return vowel === "a" || vowel === "e" || vowel === "i" || vowel === "o" || vowel === "u"
+
+      // })
+      // console.log("vowelsArray:", vowelsArray)
 
       // your code here!
+
+
 
       // Remember: console.log is your friend :)
 
@@ -50,7 +53,7 @@ class App extends Component{
 
     // the setState method will take your information from "translatedWords" and update the state object that is displayed to the user
     // no need to change this method
-    this.setState({phraseTranslated: translatedWords})
+    this.setState({ phraseTranslated: translatedWords })
   }
 
   restartGame = () => {
@@ -72,7 +75,7 @@ class App extends Component{
   // no need to modify this method
   handleInput = (e) => {
     // this method takes the input and saves the value in this.state.phrase so we can use the input in our program
-    this.setState({phrase: e.target.value})
+    this.setState({ phrase: e.target.value })
   }
 
   render() {
