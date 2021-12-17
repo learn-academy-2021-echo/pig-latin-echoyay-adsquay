@@ -34,7 +34,7 @@ class App extends Component {
       // })
       // console.log("vowelsArray:", vowelsArray)
 
-      // your code here!
+      
 
 
 
@@ -42,9 +42,9 @@ class App extends Component {
 
 
       // ACTION ITEM: change the value of currentWord to the name of whatever variable you made containing your Pig Latin'd word
-      return currentWord
+      // return currentWord
     })
-
+  }
 
     // joining the array back to a string of translated words
     // no need to change this variable
