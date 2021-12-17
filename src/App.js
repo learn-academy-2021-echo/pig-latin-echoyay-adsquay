@@ -8,9 +8,8 @@ class App extends Component{
     // the state object holds information that can be displayed to the user and updated throughout the program
     this.state = {
       // "phrase" is the text entered by the user - right now there are test words hard coded to make the process of testing your code faster and easier
-      // ACTION ITEM: when you are ready for your full user experience, delete the test words so phrase is assigned an empty string
-      phrase: "alpha through yummy squeal queen fry",
-      // "phraseTranslated" is what the user will see appear on the page as Pig Latin, it starts as the preset message and updates when your user clicks the "submit" button
+      phrase: "What would you like to have translated?",
+      // "phraseTranslated" is what the user will see appear on the page as Pig Latin
       phraseTranslated: "This is where your translated sentence will appear."
     }
   }
@@ -28,18 +27,48 @@ class App extends Component{
       // ACTION ITEM: use "currentWord" as a starting point for your code
       console.log("currentWord:", currentWord)
 
-      let vowelsArray = currentWord.split("").filter(vowel => {
-        return vowel === "a" || vowel === "e" || vowel === "i" || vowel === "o" || vowel === "u"
-      })
-      console.log("vowelsArray:", vowelsArray)
 
-      // your code here!
+      // This shows us what the 
+      console.log(currentWord);
 
+      
+
+
+
+      var vowelIndex = currentWord.search(/[aeiou]/i)
+      var yLocation = currentWord.search(/[y]/i)
+      var locationQU = currentWord.toLowerCase().indexOf('qu')
+      console.log(vowelIndex + 'vowelIndex');
+      console.log(yLocation + 'yLocation');
+      console.log("SQUID".toLowerCase().indexOf('qu'));
+
+      const pigLatin = () => {
+        if (vowelIndex === 0) {
+          return currentWord + "way"
+        } else if ((yLocation > 0 && yLocation < vowelIndex) || vowelIndex === -1){
+          return currentWord.slice(yLocation) + currentWord.slice(0, yLocation) + 'ay'
+        } else if (locationQU >= 0 && locationQU < vowelIndex) {
+          return currentWord.slice(locationQU + 2) + currentWord.slice(0, locationQU + 2) + 'ay'
+        } else {
+          return currentWord.slice(vowelIndex) + currentWord.slice(0, vowelIndex) + 'ay'
+        }}
+
+      var piggedWord = pigLatin(currentWord)
       // Remember: console.log is your friend :)
+      const removeNonLetters = () => {
+        return piggedWord.replace(/[\W_0-9]/g, "")
+      }
 
 
-      // ACTION ITEM: change the value of currentWord to the name of whatever variable you made containing your Pig Latin'd word
-      return currentWord
+      // Trying to remove non-letter characters and place them at the end of the word --->
+      // const punctuated = () => {
+      //   if (piggedWord.search(/[\W]/g) > -1) {
+      //     return piggedWord.slice(piggedWord.search)
+      //   }
+      // }
+
+
+      return removeNonLetters().toLowerCase()
     })
 
 
@@ -57,8 +86,8 @@ class App extends Component{
     // this method restarts the game by setting the original state
     // ACTION ITEM: when you are ready for your full user experience, delete the test words in phrase so that is assigned an empty string
     this.setState({
-      phrase: "alpha through yummy squeal queen fry",
-      phraseTranslated: "This is where your translated sentence will appear."
+      phrase: "What would you like to have translated?",
+      phraseTranslated: "Translate anything you would like!"
     })
   }
 
@@ -95,11 +124,11 @@ class App extends Component{
           />
           <br />
           {/* button that called the setUpPreventDefault method which calls the myPigLatinCodeHere method */}
-          <button onClick={this.setUpPreventDefault}>Submit</button>
+          <button onClick={this.setUpPreventDefault}>Translate</button>
           <button onClick={this.restartGame}>Clear</button>
         </div>
         <p>{this.state.phraseTranslated}</p>
-        <footer>Coded by ~your name here~</footer>
+        <footer>Coded by ~Regina~ ~Noah~ ~Yann~</footer>
       </>
     )
   }

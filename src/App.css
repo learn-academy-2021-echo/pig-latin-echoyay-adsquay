@@ -1,7 +1,10 @@
+@import url('https://fonts.googleapis.com/css2?family=Fuzzy+Bubbles&display=swap');
+
 body {
   margin: 1rem;
-  font-family: 'Josefin Sans', sans-serif;
+  font-family: 'Fuzzy Bubbles';
   text-align: center;
+  background-color: #FFAFAF;
 }
 
 h1 {
@@ -31,8 +34,8 @@ footer {
 }
 
 .inputArea {
-  background-color: #606060;
-  color: #fff;
+  background-color: #FFEBCC;
+  color: #FF9999;
   border-radius: .5rem;
   padding: 1rem;
 }
@@ -42,6 +45,7 @@ footer {
     font-size: 2rem;
   }
   .userInput{
+    font-family: 'Fuzzy Bubbles';
     font-size: 1rem;
     height: 5rem;
     width: 90%;
